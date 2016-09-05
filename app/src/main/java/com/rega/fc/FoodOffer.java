@@ -1,7 +1,7 @@
 package com.rega.fc;
 
 /**
- * Created by jonegalado on 9/4/16.
+ * Created by jonregalado on 9/4/16.
  */
 public class FoodOffer {
     private String name;

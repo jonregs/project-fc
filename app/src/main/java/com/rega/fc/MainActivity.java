@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jonegalado on 9/4/16.
+ * Created by jonregalado on 9/4/16.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -93,17 +93,14 @@ public class MainActivity extends AppCompatActivity {
      */
     private void prepareFoodOffer() {
         int[] covers = new int[]{
-                R.drawable.cake_icon,
-                R.drawable.cupcakes_edited,
-                R.drawable.album3,
-                R.drawable.album4,
-                R.drawable.album5,
-                R.drawable.album6,
-                R.drawable.album7,
-                R.drawable.album8,
-                R.drawable.album9,
-                R.drawable.album10,
-                R.drawable.album11
+                R.drawable.macaroons_top,
+                R.drawable.cake_pops_top,
+                R.drawable.cupcakes_top,
+                R.drawable.cakes_top,
+                R.drawable.cookies_top,
+                R.drawable.pies_top,
+                R.drawable.brownies_top,
+                R.drawable.other_top
                 };
 
         FoodOffer a = new FoodOffer("True Romance", 13, covers[0]);
@@ -128,12 +125,6 @@ public class MainActivity extends AppCompatActivity {
         foodOfferList.add(a);
 
         a = new FoodOffer("Legend", 14, covers[7]);
-        foodOfferList.add(a);
-
-        a = new FoodOffer("Hello", 11, covers[8]);
-        foodOfferList.add(a);
-
-        a = new FoodOffer("Greatest Hits", 17, covers[9]);
         foodOfferList.add(a);
 
         adapter.notifyDataSetChanged();

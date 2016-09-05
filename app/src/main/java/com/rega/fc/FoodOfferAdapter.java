@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 /**
- * Created by jonegalado on 9/4/16.
+ * Created by jonregalado on 9/4/16.
  */
 public class FoodOfferAdapter extends RecyclerView.Adapter<FoodOfferAdapter.MyViewHolder> {
 
