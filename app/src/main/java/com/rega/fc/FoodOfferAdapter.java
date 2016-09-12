@@ -6,8 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import java.util.List;
 
@@ -18,20 +17,6 @@ public class FoodOfferAdapter extends RecyclerView.Adapter<FoodOfferAdapter.MyVi
 
     private Context mContext;
     private List<FoodOffer> foodOfferList;
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, count;
-        public ImageView thumbnail;
-
-        public MyViewHolder(View view) {
-            super(view);
-            //title = (TextView) view.findViewById(R.id.title);
-            //count = (TextView) view.findViewById(R.id.count);
-            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-            //overflow = (ImageView) view.findViewById(R.id.overflow);
-        }
-    }
-
 
     public FoodOfferAdapter(Context mContext, List<FoodOffer> foodOfferList) {
         this.mContext = mContext;
@@ -49,54 +34,37 @@ public class FoodOfferAdapter extends RecyclerView.Adapter<FoodOfferAdapter.MyVi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         FoodOffer foodOffer = foodOfferList.get(position);
-        //holder.title.setText(foodOffer.getName());
-        //holder.count.setText(foodOffer.getNumOfSongs() + " songs");
 
         // loading album cover using Glide library
         Glide.with(mContext).load(foodOffer.getThumbnail()).into(holder.thumbnail);
-
-        /* holder.overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopupMenu(holder.overflow);
-            }
-        }); */
+        holder.thumbnail.setTag(foodOffer.getThumbnail());
     }
 
-    /**
-     * Showing popup menu when tapping on 3 dots
-     */
-    /*private void showPopupMenu(View view) {
-        // inflate menu
-        PopupMenu popup = new PopupMenu(mContext, view);
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public ImageView thumbnail;
 
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.menu_album, popup.getMenu());
-        popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
-        popup.show();
-    }*/
+        public MyViewHolder(View view) {
+            super(view);
 
-    /**
-     * Click listener for popup menu items
-     */
-    /*class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
+            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
 
-        public MyMenuItemClickListener() {
+            thumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    int id = (int) thumbnail.getTag();
+
+                    if(id == R.drawable.brownies_top) {
+                        Toast.makeText(mContext, "Brownies", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(id == R.drawable.cake_pops_top) {
+                        Toast.makeText(mContext, "Cake Pops", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
         }
-
-        @Override
-        public boolean onMenuItemClick(MenuItem menuItem) {
-            switch (menuItem.getItemId()) {
-                case R.id.action_add_favourite:
-                    Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.action_play_next:
-                    Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show();
-                    return true;
-                default:
-            }
-            return false;
-        }*/
+    }
 
     @Override
     public int getItemCount() {

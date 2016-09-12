@@ -103,28 +103,30 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.other_top
                 };
 
-        FoodOffer a = new FoodOffer("True Romance", 13, covers[0]);
+
+
+        FoodOffer a = new FoodOffer(covers[0]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("Xscpae", 8, covers[1]);
+        a = new FoodOffer(covers[1]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("Maroon 5", 11, covers[2]);
+        a = new FoodOffer(covers[2]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("Born to Die", 12, covers[3]);
+        a = new FoodOffer(covers[3]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("Honeymoon", 14, covers[4]);
+        a = new FoodOffer(covers[4]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("I Need a Doctor", 1, covers[5]);
+        a = new FoodOffer(covers[5]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("Loud", 11, covers[6]);
+        a = new FoodOffer(covers[6]);
         foodOfferList.add(a);
 
-        a = new FoodOffer("Legend", 14, covers[7]);
+        a = new FoodOffer(covers[7]);
         foodOfferList.add(a);
 
         adapter.notifyDataSetChanged();
